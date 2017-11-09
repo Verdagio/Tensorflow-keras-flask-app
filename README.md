@@ -33,7 +33,7 @@ Once Python is installed, install Flask:
 To begin we will need to launch an instance of CMD or Terminal etc.
 Then run the following command :
 
-`cd to/the/directory/TENSORFLOW-MACHINE-LEARNING-PROJECT/`
+`cd to/the/directory/of/Tensorflow-Machine-Learning-Project/`
 
 Once in our project directory we first do the following:
 
