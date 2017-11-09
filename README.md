@@ -16,4 +16,34 @@ Connect the HTML page to the route using AJAX.
 
 # Introduction
 
+## Requirements
+
+To run this program we need the following installed on our system:
+ 1. [Python](https://www.python.org/downloads/)
+ 2. [NPM](https://www.npmjs.com/get-npm)
+ 3. [TensorFlow](https://www.tensorflow.org/install/)
+
+Once NPM is installed, Install Angular: 
+`npm install angular@1.6.6`
+
+Once Python is installed, install Flask:
+`pip install flask`
+
+## Quick start
+To begin we will need to launch an instance of CMD or Terminal etc.
+Then run the following command :
+
+`cd to/the/directory/TENSORFLOW-MACHINE-LEARNING-PROJECT/`
+
+Once in our project directory we first do the following:
+
+`python setup.py`
+
+This will run all prequisits and setup any directories etc. required. 
+
+Next We will run webapp.py:
+
+`python webapp.py`
+
 ...
+
