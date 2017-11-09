@@ -1,9 +1,7 @@
 # TensorFlow-Machine-Learning-Project
 4th year emerging technologies machine learning project using TensorFlow, &amp; Flask
 
-### Project specification
-
-The following are your instructions to complete the project for the module Emerging Technologies for 2017. This project is worth 40% of your marks for the module. Please see the course homepage for the deadline.
+# Project specification
 
 ## Overview
 
