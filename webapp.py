@@ -1,3 +1,4 @@
+# Ref: http://flask.pocoo.org/docs/0.12/patterns/fileuploads/
 import os
 from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
@@ -29,15 +30,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('uploaded_file', filename=filename))
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
-    '''
+    return app.send_static_file('index.html')
 @app.route('/uploaded')
 def uploaded_file():
     return '''
@@ -46,6 +39,5 @@ def uploaded_file():
     <h1>Success</h1>
     '''
 
-
-
+# run our app on localhost:5000
 app.run(host='0.0.0.0', port=5000, debug=True)

@@ -1,5 +1,5 @@
-#This will setup all requirements for this to run
-
+#Ready our environment.
 import os
 
-os.mkdir('./uploads') # create our uploads directory
+# create our uploads directory for incoming files
+os.mkdir('./uploads') 
