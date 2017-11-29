@@ -5,6 +5,7 @@
 import numpy as np
 from keras.datasets import mnist
 import keras as kr
+
 # x stores the imagews / y stores the labels!
 (input_train, output_train), (input_test, output_test) = mnist.load_data()
 
