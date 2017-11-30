@@ -4,22 +4,23 @@
     References: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
      -->
      <head>
-            <meta charset="utf-8">>
+            <meta charset="utf-8">
             <title>Number recognition</title>
-            <link rel="stylesheet" href="../css/style.css"
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="../js/draw.js"></script>
      </head>
     <body>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>       
         <h1>Draw or Upload new File</h1>
-        <canvas id="myCanvas"></canvas>
+        <canvas id="myCanvas" width="560" height="560" style="background:black"></canvas>
+        <script src="/static/js/draw.js"></script> 
+
+        <img id="img" style="position:absolute ; top:50%; left:75%;" style="display: none">
 
 
-
-        <p><input type=reset name=reset>
+        <p><input type=reset name=reset onclick="reset()">
             <input type=file name=file>
-            <input type=submit value=Upload>
+            <input type="submit" value="send file" onclick="saveandupload()">
+            
+            
     </body>
     
 
