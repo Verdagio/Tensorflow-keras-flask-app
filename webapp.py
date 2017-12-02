@@ -1,6 +1,7 @@
 #! 
 # Ref: http://flask.pocoo.org/docs/0.12/patterns/fileuploads/
-import os, re, base64
+import os, re
+import base64
 import keras as kr
 import numpy as np
 from scipy.misc import imread, imresize
@@ -11,6 +12,9 @@ from werkzeug.utils import secure_filename
 
 #load up our previously trained model
 model = kr.models.load_model("./data/mnist_nn.h5")
+
+
+
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -25,6 +29,7 @@ def allowed_file(filename):
 
 @app.route('/uploadFile', methods = ['POST'])
 def uploaded():
+    init()
     #look at the data
     #print(request.get_data())
     #regex the data to extract the file data stuff that we dont need from ivbor...etc.
@@ -33,20 +38,26 @@ def uploaded():
     img = imread('./uploads/canvasImg.png', mode='L')    # read the file in greyscale
     img = np.invert(img)                                 # invert the image for added accuracy ;)
     img = imresize(img,(28,28))                          # resize the image to 28 * 28
-    img = img.reshape(1,28,28,1)                         # Gives a new shape to an array without changing its data
+    # Gives a new shape to an array without changing its data
+    newImg = np.ndarray.flatten(np.array(img)).reshape(1, 784).astype('float32')
+    # convert the data to float so we can divide it by 255
+    # just like we did in learn.py
+    # divide by 255 to make it 0 or 1
+    newImg /= 255
 
-    prediction = model.predict(self, x, batch_size=32, verbose=0)
-
+    print(newImg)
+    prediction = model.predict(newImg.astype('int'), batch_size=512)
     print(prediction)
     return 'hold on'
 
 
 def imageParser(data):
-    # using a regex we find the first , and take all that follows :)
+    # using a regex we find  base64, and take all that follows :)
     tmp = re.search(b'base64,(.*)', data).group(1)
     # now that the image data is gone, need to save it as an image to the uploads dir
+    # ref: https://stackoverflow.com/questions/2323128/convert-string-in-base64-to-image-and-save-on-filesystem-in-python
     with open('./uploads/canvasImg.png','wb') as output:
-       output.write(base64.decodebytes(tmp))#somethings not working here :(
+       output.write(base64.b64decode(tmp))#somethings not working here :(
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
