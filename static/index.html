@@ -9,16 +9,20 @@
      </head>
     <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>       
-        <h1>Draw or Upload new File</h1>
-        <canvas id="myCanvas" width="560" height="560" style="background:black"></canvas>
+        <h1>Draw a Number</h1>
+        <canvas id="myCanvas" width="280" height="280" style="background: grey"></canvas>
         <script src="/static/js/draw.js"></script> 
 
-        <img id="img" style="position:absolute ; top:50%; left:75%;" style="display: none">
+        <img id="img" style="position:absolute ; top:50%; left:75%;" style="display: none" alt="Mountain View">
+        
 
-
-        <p><input type=reset name=reset onclick="reset()">
+        <p>
+            <input type="submit" value="Download and Send Canvas" onclick="sendFile()">
+        </br>
+        </br>
+        <h2>Or choose an image</h2>
             <input type=file name=file>
-            <input type="submit" value="send file" onclick="saveandupload()">
+            <input type="submit" value="Upload">
             
             
     </body>

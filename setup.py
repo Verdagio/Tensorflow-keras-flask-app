@@ -5,6 +5,7 @@ import os
 
 # create our data directory for incoming files
 os.mkdir('./data')
+os.mkdir('./uploads')
 
 # run the learn.py file to train the model
 print("Running learn.py! This will train our model.. hold on a sec\n")

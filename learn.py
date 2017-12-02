@@ -65,7 +65,7 @@ print("loss: ", loss)
 
 # predict the number
 prediction = np.around(model.predict(np.expand_dims(input_test[0], axis=0))).astype(np.int)[0]
-print("Actual: %s\tEstimated: %s" % (output_test[0].astype(np.int), prediction))
+print("Actual: %s\tEstimated: %s" % (output_test[0].astype(np.int), prediction))@
 
 # Save the model to a file for later use.
 model.save("./data/mnist_nn.h5")
