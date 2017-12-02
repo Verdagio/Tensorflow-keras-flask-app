@@ -11,8 +11,20 @@ from werkzeug.utils import secure_filename
 
 
 #load up our previously trained model
-model = kr.models.load_model("./data/mnist_nn.h5")
 
+def init():
+    classes = 10
+    r, c = 28, 28
+    input_shape = (r, c, 1)
+
+    model = kr.models.Sequential()
+    model.add(kr.layers.Dense(512, input_shape=(784,)))
+    model.add(kr.layers.Activation('relu'))
+    model.add(kr.layers.Dropout(0.2))
+    model.add(kr.layers.Dense(10))
+    model.add(kr.layers.Activation('softmax'))
+    model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
+    model = kr.models.load_weights("./data/mnist_nn.h5")
 
 
 UPLOAD_FOLDER = './uploads'
