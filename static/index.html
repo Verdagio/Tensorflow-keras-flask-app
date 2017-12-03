@@ -10,18 +10,13 @@
     <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>       
         <h1>Draw a Number</h1>
-        <canvas id="myCanvas" width="280" height="280" style="background: grey"></canvas>
+        <h2>Number recognition Neural Network</h2>
+        <canvas id="myCanvas" width="560" height="560" style="background: grey"></canvas>
         <script src="/static/js/draw.js"></script>         
         <p>
+        <input type="button" value="Reset" onclick="reset()">
         <input type="submit" value="Send Canvas" onclick="sendFile()">
-        <h1>Prediction: </h1>
-        <h1 id="result"> Test</h1>
-        </br>
-        </br>
-        <h2>Or choose an image</h2>
-            <input type=file name=file>
-            <input type="submit" value="Upload">
-            
+        <h1 id="result">...</h1>   
             
     </body>
     

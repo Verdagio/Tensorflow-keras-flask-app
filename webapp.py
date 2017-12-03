@@ -9,10 +9,12 @@ from scipy.misc import imread, imresize
 from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
+UPLOAD_FOLDER = './uploads'
 
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #load up our previously trained model
-
 def init():
 
     model = kr.models.load_model("./data/mnist_nn.h5")
@@ -21,34 +23,21 @@ def init():
     return model, graph
 
 def imageParser(data):
-    # using a regex we find  base64, and take all that follows :)
+    # using a regex we find 'base64,' and use everything that follows :)
     tmp = re.search(b'base64,(.*)', data).group(1)
     # now that the image data is gone, need to save it as an image to the uploads dir
     # ref: https://stackoverflow.com/questions/2323128/convert-string-in-base64-to-image-and-save-on-filesystem-in-python
     with open('./uploads/canvasImg.png','wb') as output:
        output.write(base64.b64decode(tmp))
 
+# predict the number 
 def predictNumber(file):
     model, graph = init()
     with graph.as_default():
-        prediction = model.predict(file.astype('int')) # try now to predict the model
+        prediction = model.predict(file) # try now to predict using our pre trained model
         response = np.array_str(np.argmax(prediction))
     
     return response
-
-
-
-UPLOAD_FOLDER = './uploads'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
 
 @app.route('/uploadFile', methods = ['POST'])
 def uploaded():
@@ -69,7 +58,7 @@ def uploaded():
 
     return response
  
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def home():
     return app.send_static_file('index.html')
 
