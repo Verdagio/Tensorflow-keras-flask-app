@@ -6,10 +6,7 @@ import tensorflow as tf
 from scipy.misc import imread, imresize
 from flask import Flask, request, redirect, url_for
 
-UPLOAD_FOLDER = './uploads'
-
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #load up our previously trained model
 def init():
