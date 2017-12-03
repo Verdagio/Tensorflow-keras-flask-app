@@ -9,20 +9,10 @@ The model which is built using Keras a high level api that utilizes Tensorflow i
 
 ## Requirements & Installation
 
-To run this program we need the following installed on our system:
+To run this program we need the following installed: [Python](https://www.python.org/downloads/)
 
- 1. [Python](https://www.python.org/downloads/)
- 2. [flask](http://flask.pocoo.org/)
- 2. [numpy](http://www.numpy.org/)
- 2. [scipy](https://www.scipy.org/)
- 2. [pillow](https://python-pillow.org/)
- 2. [h5py](http://www.h5py.org/)
- 2. [Tensorflow](https://www.tensorflow.org/install/)
- 2. [Keras](https://keras.io/)
+### Install python! Then do the following:
 
- ### Install python! Then do the following:
-
-## Quick start
 To begin we will need to launch an instance of CMD or Terminal etc.
 Then run the following command :
 
@@ -33,6 +23,15 @@ Once in our project directory we run this:
 `python setup.py`
 
 This will create any directories that are required, install all packages that are needed, train the model, & then launch the webapp!
+
+Installed packages:
+ 1. [flask](http://flask.pocoo.org/)
+ 2. [numpy](http://www.numpy.org/)
+ 3. [scipy](https://www.scipy.org/)
+ 4. [pillow](https://python-pillow.org/)
+ 5. [h5py](http://www.h5py.org/)
+ 6. [Tensorflow](https://www.tensorflow.org/install/)
+ 7. [Keras](https://keras.io/)
 
 Now go visit 127.0.0.1:5000 in your browser (not IE... Cause IE...) and enjoy! :)
 
