@@ -1,0 +1,7 @@
+flask
+numpy
+scipy
+pillow
+h5py
+tensorflow
+keras

@@ -1,49 +1,70 @@
 # TensorFlow-Machine-Learning-Project
-4th year emerging technologies machine learning project using TensorFlow, &amp; Flask
-
-# Project specification
-
-## Overview
-
-In this project you will create a web application in Python to recognise digits in images. Users will be able to visit the web application through their browser, submit (or draw) an image containing a single digit, and the web application will respond with the digit contained in the image. You should use tensorflow and flask to do this. Note that accuracy of approximately 99% is considered excellent in recognising digits, so it is okay if your algorithm gets it wrong sometimes.
-
-## Instructions
-
-Create a git repository with a README.md and an appropriate gitignore file. The README should explain who you are, why you created the application, how you created it, how to download and run it, and summarise any references you have used.
-In the repository, create a web application that serves a HTML page as the root resource. The page should contain an input where the user can upload (or draw) an image containing a digit, and an area to display the image and the digit.
-Add a route to your application that accepts requests containing a user input image and responds with the digit.
-Connect the HTML page to the route using AJAX.
 
 # Introduction
+Hello! Welcome to this pretty nifty number recognition app! It ain't pretty but it does the trick, so how does it all work?
 
-## Requirements
+Using Javascript, html, & python I've built a simple web application with a  neural network in the background to make some predictions based off what you draw on the canvas. The image you draw is sent using an AJAX request to the python webapp script which returns a promise... the predicted number.
+
+The model which is built using Keras a high level api that utilizes Tensorflow is trained beforehand using the mnist handwritten digits dataset, to predict the number that it's sent.
+
+## Requirements & Installation
 
 To run this program we need the following installed on our system:
+
  1. [Python](https://www.python.org/downloads/)
- 2. [NPM](https://www.npmjs.com/get-npm)
- 3. [TensorFlow](https://www.tensorflow.org/install/)
+ 2. [flask](http://flask.pocoo.org/)
+ 2. [numpy](http://www.numpy.org/)
+ 2. [scipy](https://www.scipy.org/)
+ 2. [pillow](https://python-pillow.org/)
+ 2. [h5py](http://www.h5py.org/)
+ 2. [Tensorflow](https://www.tensorflow.org/install/)
+ 2. [Keras](https://keras.io/)
 
-Once NPM is installed, Install Angular: 
-`npm install angular@1.6.6`
+ ##### Install python first! Then run the following command:
 
-Once Python is installed, install Flask:
-`pip install flask`
+``` pip install -r requirements.txt ```
+
+This will install all the packages that we need to run this app!
 
 ## Quick start
 To begin we will need to launch an instance of CMD or Terminal etc.
 Then run the following command :
 
-`cd to/the/directory/of/Tensorflow-Machine-Learning-Project/`
+`cd to/the/directory/of/The-Project/`
 
-Once in our project directory we first do the following:
+Once in our project directory we run this:
 
 `python setup.py`
 
-This will run all prequisits and setup any directories etc. required. 
+This will create any directories that are required, train the model & launch the webapp!
 
-Next We will run webapp.py:
-
-`python webapp.py`
+Now go visit 127.0.0.1:5000 in your browser (not IE... Cause IE...) and enjoy! :)
 
 ...
+
+## Some Technical information
+
+### What is the [MNIST](http://yann.lecun.com/exdb/mnist/) data set?
+
+The MNIST database of handwritten digits, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
+It is a good database for people who want to try learning techniques and pattern recognition methods on real-world data while spending minimal efforts on preprocessing and formatting.
+
+### What are Tensorflow & Keras?
+
+###### [Tensorflow](https://www.tensorflow.org/)
+
+TensorFlow™ is an open source software library for numerical computation using data flow graphs. Nodes in the graph represent mathematical operations, while the graph edges represent the multidimensional data arrays (tensors) communicated between them. The flexible architecture allows you to deploy computation to one or more CPUs or GPUs in a desktop, server, or mobile device with a single API.
+
+###### [Keras](https://keras.io/)
+
+Keras is a high-level neural networks API, written in Python and capable of running on top of TensorFlow. It was developed with a focus on enabling fast experimentation. Being able to go from idea to result with the least possible delay is key to doing good research.
+
+Use Keras if you need a deep learning library that:
+
+1. Allows for easy and fast prototyping (through user friendliness, modularity, and extensibility).
+2. Supports both convolutional networks and recurrent networks, as well as combinations of the two.
+3. Runs seamlessly on CPU and GPU.
+4. Read the documentation at Keras.io.
+
+Keras is compatible with: Python 2.7-3.6.
 

@@ -1,5 +1,3 @@
-#! 
-# Ref: http://flask.pocoo.org/docs/0.12/patterns/fileuploads/
 import os, re
 import base64
 import keras as kr
@@ -7,7 +5,6 @@ import numpy as np
 import tensorflow as tf
 from scipy.misc import imread, imresize
 from flask import Flask, request, redirect, url_for
-from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = './uploads'
 
@@ -41,14 +38,15 @@ def predictNumber(file):
 
 @app.route('/uploadFile', methods = ['POST'])
 def uploaded():
-    #look at the data
-    #print(request.get_data())
+
     #regex the data to extract the file data stuff that we dont need from ivbor...etc.
     imageParser(request.get_data())
     img = imread('./uploads/canvasImg.png', mode='L')    # read the file in greyscale
     img = imresize(img,(28,28))                          # resize the image to 28 * 28
+   
     # Gives a new shape to an array without changing its data
     newImg = np.ndarray.flatten(np.array(img)).reshape(1, 784).astype('float32')
+   
     # convert the data to float so we can divide it by 255
     # just like we did in learn.py
     # divide by 255 to make it 0 or 1
